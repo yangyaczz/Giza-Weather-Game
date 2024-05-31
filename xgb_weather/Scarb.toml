@@ -1,0 +1,6 @@
+[package]
+name = "xgb_weather"
+version = "0.1.0"
+
+[cairo]
+enable-gas = false
