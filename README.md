@@ -66,3 +66,22 @@ giza verify --proof-id 985
 [giza][2024-06-01 04:45:26.364] Verification result: True
 [giza][2024-06-01 04:45:26.365] Verification time: 0.445587406
 ```
+
+
+8. Creating an AI Agent
+```
+giza agents create --model-id 675 --version-id 4 --name GWG --description GizaWeatherGame
+{
+  "id": 24,
+  "name": "GWG",
+  "description": "GizaWeatherGame",
+  "parameters": {
+    "model_id": 675,
+    "version_id": 4,
+    "endpoint_id": 244,
+    "account": "yycztest"
+  },
+  "created_date": "2024-05-31T21:12:25.271732",
+  "last_update": "2024-05-31T21:12:25.271732"
+}
+```

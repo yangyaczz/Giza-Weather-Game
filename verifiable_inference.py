@@ -23,6 +23,9 @@ def execution():
     # The input data type should match the model's expected input
     input = X_test[1, :]
 
+    print(input)
+    print(X_test)
+
     (result, proof_id) = prediction(input, MODEL_ID, VERSION_ID)
 
     print(f"Predicted value for input {input} is {result}")
