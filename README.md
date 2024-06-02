@@ -1,4 +1,6 @@
 # Giza-Weather-Game
+GWG, inspired by Giza and WeatherXM, uses historical weather data and time series machine learning to predict future weather. The model will be deployed on the zkml platform Giza. With Giza AI Agent, offering daily weather predictions and betting options.
+`https://gwg-frontend.vercel.app/`
 
 
 1. fetch weather data from WeatherXM Data Index `https://index.weatherxm.network/`, organize and clean data and get `WeatherXMData.csv`
