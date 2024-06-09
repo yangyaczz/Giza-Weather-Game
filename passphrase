@@ -1,1 +1,6 @@
 passphrase = ''
+
+sn_address = ""
+sn_private_key = ""
+sn_class_hash = ""
+sn_node_url = ""
