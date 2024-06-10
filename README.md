@@ -1,7 +1,7 @@
 # Giza-Weather-Game
 Giza Weather Game, inspired by Giza and WeatherXM, uses historical weather data and time series machine learning to predict future weather. The model will be deployed on the zkml platform Giza. With Giza AI Agent, offering daily weather predictions and betting options.
 
-- website demo starknet version: <https://nextjs-yyczs-projects.vercel.app/>
+- website demo starknet version: <https://gwg-ss-2-nextjs.vercel.app/>
 - website demo evm version: <https://gwg-frontend.vercel.app/>
 
 ![tab1](./presentation/1.png)
@@ -103,7 +103,7 @@ Giza Weather Game, inspired by Giza and WeatherXM, uses historical weather data 
 
       `python create_prediction_round_starknet.py`
 
-      
+
       `python create_prediction_round_evm.py`
 
 
