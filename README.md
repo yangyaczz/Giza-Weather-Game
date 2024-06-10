@@ -8,7 +8,7 @@ Giza Weather Game, inspired by Giza and WeatherXM, uses historical weather data 
 - website demo evm version: <https://gwg-frontend.vercel.app/>
 
 ## General Process
-1. fetch raw weather data from WeatherXM Data Index <https://index.weatherxm.network/>, organize and clean data and get [Processed Data(WeatherXMData.csv)](WeatherXMData.csv) and prepare for training.
+1. fetch raw weather data from [WeatherXM Data Index](https://index.weatherxm.network/), organize and clean data and get [Processed Data(WeatherXMData.csv)](WeatherXMData.csv) and prepare for training.
 
 2. Create and Train an XGBoost Model, Save the [XGBoost Model](train_xgboost.py). 
 
