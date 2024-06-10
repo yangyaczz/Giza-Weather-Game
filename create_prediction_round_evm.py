@@ -3,12 +3,13 @@ import numpy as np
 from PIL import Image
 import requests
 from giza.agents import GizaAgent, AgentResult
-
+import time
 from ape import accounts
-
 from passphrase import passphrase
+import os
 
 
+os.environ['YYCZTEST_PASSPHRASE'] = passphrase
 # Make sure to fill these in
 MODEL_ID = 675
 VERSION_ID = 4
@@ -24,6 +25,7 @@ def get_current_data_from_WeatherXM():
 
     # data = [12.5,95.0,0.19,1008.35,False]
     response = requests.get(URL)
+    current_data = []
     if response.status_code == 200:
         data = response.json()
 
@@ -39,9 +41,11 @@ def get_current_data_from_WeatherXM():
             }
             results.append(result)
 
-    print(results)
+    print(results[0])
+    for value in results[0].values():
+        current_data.append(value)
 
-    return np.array(results, dtype=object)
+    return np.array(current_data, dtype=object)
 
 
 def create_agent(model_id: int, version_id: int, chain: str, contract: str):
@@ -57,7 +61,6 @@ def create_agent(model_id: int, version_id: int, chain: str, contract: str):
     )
     return agent
 
-##
 def predict(agent: GizaAgent, input):
     prediction = agent.predict(
         input_feed={"input": input}, verifiable=True, model_category="XGB"
@@ -65,18 +68,16 @@ def predict(agent: GizaAgent, input):
     print('prediction', int(prediction.value * 1000))
     return prediction
 
-
 def get_probability(prediction: AgentResult):
     return int(prediction.value * 1000)
 
 def execute_contract(agent: GizaAgent, pob: int):
-
     with agent.execute() as contracts:
-        contract_result = contracts.gwg.createRound(1717344058, pob)
+        contract_result = contracts.gwg.createRound(int(time.time()), pob)
     return contract_result
 
 
-
+# main ai agent flow
 def create_prediction_round():
 
     current_weather_data = get_current_data_from_WeatherXM()
@@ -93,7 +94,8 @@ def create_prediction_round():
 
 
 
+# schedule task
+while True:
+    create_prediction_round()
+    time.sleep(60 * 60 * 24)
 
-import os
-os.environ['YYCZTEST_PASSPHRASE'] = passphrase
-create_prediction_round()

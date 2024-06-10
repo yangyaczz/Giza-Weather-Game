@@ -1,18 +1,18 @@
 # Giza-Weather-Game
 Giza Weather Game, inspired by Giza and WeatherXM, uses historical weather data and time series machine learning to predict future weather. The model will be deployed on the zkml platform Giza. With Giza AI Agent, offering daily weather predictions and betting options.
 
+- website demo starknet version: <https://nextjs-yyczs-projects.vercel.app/>
+- website demo evm version: <https://gwg-frontend.vercel.app/>
+
 ![tab1](./presentation/1.png)
 ![tab1](./presentation/2.png)
 
-- website demo starknet version: <https://nextjs-yyczs-projects.vercel.app/>
-- website demo evm version: <https://gwg-frontend.vercel.app/>
+
 
 ## General Process
 1. fetch raw weather data from [WeatherXM Data Index](https://index.weatherxm.network/), organize and clean data and get [Processed Data(WeatherXMData.csv)](WeatherXMData.csv) and prepare for training.
 
-2. Create and Train an XGBoost Model, Save the [XGBoost Model](train_xgboost.py). 
-
-    `python train_xgboost.py`
+2. Create and Train an XGBoost Model, Save the [XGBoost Model](train_xgboost.py).  `python train_xgboost.py`
 
 3. - Transpile model to Orion Cairo and deploy it on Giza platform.
 
@@ -99,7 +99,13 @@ Giza Weather Game, inspired by Giza and WeatherXM, uses historical weather data 
       }
       ```
 
-    - [Starknet AI Agent backend](starknet_cpr.py) | [EVM AI Agent backend](create_prediction_round.py) They are automatically script and it will obtain weather data and feed it to model to get probability of rain, and upload it to smart contract to create prediction round.
+    - [Starknet AI Agent backend](create_prediction_round_starknet.py) | [EVM AI Agent backend](create_prediction_round_evm.py) They are automatically script and it will obtain weather data and feed it to model to get probability of rain, and upload it to smart contract to create prediction round.
+
+      `python create_prediction_round_starknet.py`
+
+      
+      `python create_prediction_round_evm.py`
+
 
 6. Create a frontend to invite user come here to have fun.
 
